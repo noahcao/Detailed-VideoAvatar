@@ -5,10 +5,10 @@
 ---
 
 ## I、 Four Inportant New Aspects ##
-1. Facial landmarks
+1. Facial landmarks     
 将2D人脸识别信息植入到3D模型的构建中
 
-2. shape-from-shading
+2. shape-from-shading     
 通过阴影来复原一些褶皱等细节信息
 
 3. texture stitching
@@ -19,9 +19,9 @@
 
 ## II、 Three Construction Steps ##
 ### 0. Subdivided SMPL body model ###
-（1）目标：将原始的SMPL模型的每条边进行两次细分，得到具有110210个vertice和220416个face的更detail的模型（对比原始的N=6890，F=13776）
-
-（2）新增顶点的计算公式：
+（1）目标：将原始的SMPL模型的每条边进行两次细分，得到具有110210个vertice和220416个face的更detail的模型（对比原始的N=6890，F=13776）      
+     
+（2）新增顶点的计算公式：     
 > $$v_{N+e} = 0.5(v_i + v_j) + s_en_e$$
 
     v_i,v_j:组成一条边的两个顶点
@@ -47,10 +47,13 @@
 
 
 ### 1. Medium-level body shape reconstruction  ###
-(1) 时机：unpose完成之后
-(2) 需要数据：关键帧的face landmark
-(3) 使用模型：粗粒度的SMPL model（没有细分过的）
-(4) 优化公式：
+(1) 时机：unpose完成之后    
+
+(2) 需要数据：关键帧的face landmark  
+
+(3) 使用模型：粗粒度的SMPL model（没有细分过的）    
+
+(4) 优化公式：    
 
 > $$arg\min_{\beta,D} ( E_{silh}+E_{face}+E_{regm})$$
 
