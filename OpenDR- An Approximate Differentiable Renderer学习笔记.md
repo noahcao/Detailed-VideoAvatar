@@ -32,21 +32,21 @@ OpenDR的**前向渲染过程**可以简单理解成一个函数$f(\Theta)$，�
 前面已经提到渲染函数$f(\Theta)$，这里将$\Theta$总的分解为三个参数：**V**（vertex locations），**C**（ camera parameters ）和 **A**（per-vertex brightness ）。即$\Theta = {V, C, A}$    
 
 forward model主要进行以下几个近似：
-### 1. Appearance（A）：###
+### 1. Appearance（A）：
 
 >  Per-pixel surface appearance is modeled as **product of mipmapped texture and per-vertex brightness**, such that brightness combines the effects of reflectance and lighting. 
 每个像素的值都是纹理数据和每点的光照乘积，所以像素的亮度就反映了反射项和光照项的共同作用。
 
 关键词：texture；per-vertex brightness；
 
-### 2. Geometry （V）###
+### 2. Geometry （V）
 
 >  We assume a 3D scene to be approximated by triangles, parameterized by vertices V , with the option of a background image (or depth image for the depth renderer) to be placed behind the geometry
 3D信息是通过点组成的三角面片表示的，背景图像、深度图像可以作为几何信息的附加信息。
 
 关键词：vertices；background image；depth image；
 
-### 3. Camera (C) ###
+### 3. Camera (C) 
 
 > We approximate continuous pixel intensities by their sampled central value.
 使用连续像素的采样中心值来近似像素的强度。相机投影模型是来自OpenCV的 pinhole-plus-distortion camera projection model。
@@ -58,7 +58,8 @@ forward model主要进行以下几个近似：
 ## 对前向过程进行微分 ##
 ### Part0 ：中间变量U ###
 为了描述在求偏导的过程，引入中间变量**U**，U表示**2D的投影点坐标**  
-整个求偏导的过程遵循链式法则：
+整个求偏导的过程遵循链式法则：   
+
 ![链式法则][1]
 
 ### Part1 ：Differentiating Appearance ###
@@ -86,8 +87,8 @@ $$ \frac{\delta f}{\delta V} = \frac{\delta f}{\delta U}\frac{\delta U}{\delta V
 
 ----------
 ## 需要利用openDR做的工作 ##
-1.区分出3D facial landmarks
-2.构造3D facial landmarks的project rays
-3.建立2D facial landmark和相关rays的static map
+1.区分出3D facial landmarks    
+2.构造3D facial landmarks的project rays    
+3.建立2D facial landmark和相关rays的static map    
 
   [1]: http://m.qpic.cn/psb?/V13Ti98m05LW5b/PJ.th52wDmEWP7e3kKKxtdFE4inZgveuDT0UJjAn*Ek!/b/dL8AAAAAAAAA&bo=uQGZAQAAAAADFxI!&rf=viewer_4
