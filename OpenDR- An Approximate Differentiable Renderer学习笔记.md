@@ -12,9 +12,9 @@
 Renderer是指**渲染器**，负责处理图像化的过程，即利用参数来生成图片/模型
 
 ### 3. Differentiable Renderer ###
-OpenDR是一个开源框架，DR指**Differentiable Renderer（可微的渲染器）**，也就是说，它具有这样的功能：
-（1）能通过给定的参数来**渲染**图像
-（2）能自动对这些参数进行**求导**，从而进行**局部优化**
+OpenDR是一个开源框架，DR指**Differentiable Renderer（可微的渲染器）**，也就是说，它具有这样的功能：    
+（1）能通过给定的参数来**渲染**图像   
+（2）能自动对这些参数进行**求导**，从而进行**局部优化**   
 OpenDR是基于OpenGL、OpenCV和Chumpy（提供auto differentiation）搭建的
 
 
