@@ -1,5 +1,4 @@
-﻿# OpenDR: An Approximate Differentiable Renderer学习笔记
-
+# OpenDR: An Approximate Differentiable Renderer学习笔记
 
 ---
 
@@ -17,13 +16,11 @@ OpenDR是一个开源框架，DR指**Differentiable Renderer（可微的渲染�
 （2）能自动对这些参数进行**求导**，从而进行**局部优化**   
 OpenDR是基于OpenGL、OpenCV和Chumpy（提供auto differentiation）搭建的
 
-
 ----------
 
 
 ## 简介 ##
 OpenDR的**前向渲染过程**可以简单理解成一个函数$f(\Theta)$，其中$\Theta$ 就是渲染用到的参数的集合。而最简单的**优化过程**也就是使rendered image intensities和observed image intensities之间的difference最小。这个difference可能是由各种复杂的函数定义的，但是核心思想都是要让合成的图像和实际的图像之间区别最小
-
 
 ----------
 
@@ -53,7 +50,6 @@ forward model主要进行以下几个近似：
 
 总的来说，openDR的渲染过程与其他的图像管线（graphics pipelines）大体是相同的。关键的区别在于，其他pipeline支持的是per-pixel的渲染函数，而openDR支持的是**per-vertex**的渲染函数
 
-
 ----------
 ## 对前向过程进行微分 ##
 ### Part0 ：中间变量U ###
@@ -79,11 +75,9 @@ $$ \frac{\delta f}{\delta V} = \frac{\delta f}{\delta U}\frac{\delta U}{\delta V
 ### Part3 ：Differentiating Intensity with Respect to  2D Image Coordinates  ###
 这里篇幅比较长，而且都是一些具体做法。大致是这样的过程：（1）将所有的像素点分区：遮挡边界像素点和内部像素点（2）在此基础上将每个像素划分为三类：interior, interior/boundary, 和 many-boundary 中的一类，使用不同的filter进行处理
 
-
 ----------
 ## 代码演示 ##
 在论文的第5和第6部分讲解了两个demo的代码，推荐阅读，在这里就不分析了
-
 
 ----------
 ## 需要利用openDR做的工作 ##
@@ -91,4 +85,4 @@ $$ \frac{\delta f}{\delta V} = \frac{\delta f}{\delta U}\frac{\delta U}{\delta V
 2.构造3D facial landmarks的project rays    
 3.建立2D facial landmark和相关rays的static map    
 
-  [1]: http://m.qpic.cn/psb?/V13Ti98m05LW5b/PJ.th52wDmEWP7e3kKKxtdFE4inZgveuDT0UJjAn*Ek!/b/dL8AAAAAAAAA&bo=uQGZAQAAAAADFxI!&rf=viewer_4
+[1]: http://m.qpic.cn/psb?/V13Ti98m05LW5b/PJ.th52wDmEWP7e3kKKxtdFE4inZgveuDT0UJjAn*Ek!/b/dL8AAAAAAAAA&bo=uQGZAQAAAAADFxI!&rf=viewer_4

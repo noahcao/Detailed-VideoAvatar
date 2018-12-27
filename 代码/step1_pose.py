@@ -63,7 +63,7 @@ def init(frames, body_height, b2m, viz_rn):
 
     E_height = None
     if body_height is not None:
-         E_height = height_predictor(b2m, betas) - body_height * 1000.
+        E_height = height_predictor(b2m, betas) - body_height * 1000.
 
     # first get a rough pose for all frames individually
     for i, f in enumerate(frames):
@@ -125,7 +125,6 @@ def init(frames, body_height, b2m, viz_rn):
             },
             callback=get_cb(viz_rn, frames[0])
         )
-
 
 def reinit_frame(frame, null_pose, nohands, viz_rn):
 

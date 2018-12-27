@@ -87,7 +87,7 @@ def fit_consensus(frames, base_smpl, camera, frustum, model_data, nohands, icp_c
             method='dogleg',
             options={'maxiter': 15, 'e_3': 0.001},
             callback=get_cb(frames[0], base_smpl, camera, frustum) if display else None
-        )
+        ) 
 
 
 def main(pose_file, masks_file, camera_file, out, obj_out, num, icp_count, model_file, first_frame, last_frame,

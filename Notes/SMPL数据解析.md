@@ -14,7 +14,7 @@
 
 | 字典项 | 数据类型 | 备注 |
 | - | - | - |
-| J_regressor_prior | (24,6890) | 
+| J_regressor_prior | (24,6890) |
 | f | (13776,3) | face，就是每个三角形，[i0,i1,i2]其中i是点的序号（0~6889）
 | J_regressor | (24,6890) |
 | kintree_table | (2,24) | kinematic tree
