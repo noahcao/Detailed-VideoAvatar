@@ -77,6 +77,7 @@
 ### (4). rays.py ###
 1. 定义函数rays_from_landmark，由2D landmark构造camera rays
 
+
     def rays_from_landmark(landmark, camera):
         points = landmark[:,:-1] #array((x1,y1)(x2,y2)...)
         rays = rays_from_points(points, camera)
@@ -132,6 +133,7 @@
 
 ### (5). step2_consencus.py ###
 1. main函数中增加了参数face_file, 为预先处理得到的face_landmark.hdf5文件
+
 
     def main(pose_file, masks_file, face_file, camera_file, ...):
 
@@ -203,3 +205,16 @@
             ...)
 
 
+----------
+## 优化效果展示 ##
+左边为优化后的模型，右边为之前的consensus模型    
+![female][1]    
+
+![male][2]  
+
+以上分别来自数据集中的female-7-plaza和male-9-plaza 可以看到有一些细微的优化，但是不明显  
+我认为纹理图像对模型仿真度的影响最为关键，面部的mesh的优化需要配合更细致的纹理图像才能体现出最佳效果，目前的纹理图像太过于模糊粗糙
+
+
+  [1]: http://m.qpic.cn/psb?/V13Ti98m05LW5b/rogmPiyHNRYRKnyKsQUGnDBXCwwcUgPmj6S861eXnOA!/b/dFMBAAAAAAAA&bo=jAOGAgAAAAADNxk!&rf=viewer_4
+  [2]: http://m.qpic.cn/psb?/V13Ti98m05LW5b/SdP2uMWzwojfxb63xXjzM41mVnJXUbyaudxOlYN14Rw!/b/dL4AAAAAAAAA&bo=4QKIAgAAAAADN3s!&rf=viewer_4
