@@ -76,14 +76,14 @@
 
 ### (4). rays.py ###
 1. 定义函数rays_from_landmark，由2D landmark构造camera rays 
-'''
+```
   def rays_from_landmark(landmark, camera):
         points = landmark[:,:-1] #array((x1,y1)(x2,y2)...)
         rays = rays_from_points(points, camera)
         return rays
-'''
+```
 2. 定义函数select_rays，对3D vertex和landmark rays进行匹配，并对rays进行unpose处理，整个过程类似于 select_and_unpose 函数
-
+```
     def select_rays(rays, Vi, smpl, face_ids):
         # find face vertexs 
         v_ids = face_ids
@@ -112,11 +112,12 @@
         return np.concatenate((v_ids[ray_matches], v_ids[valid_verts])), \
                np.concatenate((rays_u_r[valid_rays], rays_u_v[valid_verts])),\
                w_idx
+```
 3. 定义了ray_face函数，计算E_face能量项
 
    > $$ E_{face} = \sum_{l,r\in L} w_l\rho (\delta(l_l, r_r)) $$
 
-
+```
     def ray_face(f, sigma, base_smpl, camera, face_ids):
         camera.t[:] = f.trans
         
@@ -128,6 +129,7 @@
         fina = x*w
          
         return fina
+```
 
 ### (5). step2_consencus.py ###
 1. main函数中增加了参数face_file, 为预先处理得到的face_landmark.hdf5文件
