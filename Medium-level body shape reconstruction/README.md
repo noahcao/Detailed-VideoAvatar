@@ -75,15 +75,13 @@
     face_rays：由face_landmark得到的2D投影光线，shape为（70, 2, 3）
 
 ### (4). rays.py ###
-1. 定义函数rays_from_landmark，由2D landmark构造camera rays
-
-
-    def rays_from_landmark(landmark, camera):
+1. 定义函数rays_from_landmark，由2D landmark构造camera rays 
+'''
+  def rays_from_landmark(landmark, camera):
         points = landmark[:,:-1] #array((x1,y1)(x2,y2)...)
         rays = rays_from_points(points, camera)
-    
         return rays
-
+'''
 2. 定义函数select_rays，对3D vertex和landmark rays进行匹配，并对rays进行unpose处理，整个过程类似于 select_and_unpose 函数
 
     def select_rays(rays, Vi, smpl, face_ids):
