@@ -86,8 +86,6 @@ def rays_from_silh(mask, camera):
         cv2.drawContours(silh, [con], 0, 1, 1)
 
     points = np.vstack(np.where(silh == 1)[::-1]).astype(np.float32).T
-    #print("rays silh point shape:", points.shape)
-    #print("rays silh point", points)
     rays = rays_from_points(points, camera)
 
     return rays
@@ -105,8 +103,6 @@ def ray_objective(f, sigma, base_smpl, camera, vis_rn_b, vis_rn_m):
 # paper2
 def rays_from_landmark(landmark, camera):
     points = landmark[:,:-1] #array((x1,y1)(x2,y2)...)
-    #print("rays face point shape:", points.shape)
-    #print("rays face point", points)
     rays = rays_from_points(points, camera)
 
     return rays
@@ -121,9 +117,9 @@ def select_rays(rays, Vi, smpl, face_ids):
     dist = np.linalg.norm(np.cross(verts.reshape(-1, 1, 3), n, axisa=2, axisb=1) - m, axis=2)
 
     #for every ray, find closest vertex
-    ray_matches = np.argmin(dist, axis=0)
-    vert_matches = np.argmin(dist, axis=1)
-
+    ray_matches = np.argmin(dist, axis=0) #for each ray -> idx of closest vertex
+    vert_matches = np.argmin(dist, axis=1) #for each vertex -> idx of closest ray
+     
     rays_u_r = np.zeros_like(rays)
 
     M = Vi[:, :, v_ids]
@@ -142,21 +138,28 @@ def select_rays(rays, Vi, smpl, face_ids):
 
     rays_u_v[:, 0] = np.sum(tmp0, axis=1).T[:, :3] - T
     rays_u_v[:, 1] = np.sum(tmp1, axis=1).T[:, :3] - T
-
+     
     valid_rays = dist[np.vstack((ray_matches, range(dist.shape[1]))).tolist()] < 0.12
     valid_verts = dist[np.vstack((range(dist.shape[0]), vert_matches)).tolist()] < 0.03
-
+     
     ray_matches = ray_matches[valid_rays]
 
+    # idx of w - w: confidence of landmark
+    w_idx = np.concatenate((np.arange(rays.shape[0])[valid_rays], vert_matches[valid_verts]))
+     
     return np.concatenate((v_ids[ray_matches], v_ids[valid_verts])), \
-           np.concatenate((rays_u_r[valid_rays], rays_u_v[valid_verts]))
+           np.concatenate((rays_u_r[valid_rays], rays_u_v[valid_verts])),\
+           w_idx
 
 def ray_face(f, sigma, base_smpl, camera, face_ids):
     camera.t[:] = f.trans
 
-    f.v_ids, f.rays_u = select_rays(f.rays, f.Vi, base_smpl, face_ids)
+    f.v_ids, f.rays_u, w_idx = select_rays(f.face_rays, f.Vi, base_smpl, face_ids)
     f.verts = base_smpl.v_shaped_personal[f.v_ids]
     f.dist = distance_function(f.rays_u, f.verts)
-
-    return GMOf(f.dist, sigma)
+    w = f.face_landmark[:,-1][w_idx].reshape(-1,1)
+    x = GMOf(f.dist, sigma)
+    fina = x*w
+     
+    return fina
 # paper2

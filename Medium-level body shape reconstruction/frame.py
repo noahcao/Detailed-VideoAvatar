@@ -64,14 +64,11 @@ def setup_frame_rays_paper2(base_smpl, camera, camera_t, camera_rt, pose, trans,
 
     f.Vi = batch_invert(base_smpl.V.r)
     f.rays = rays_from_silh(f.mask, camera)
-    #print("f.rays  ",f.rays)
 
     # paper2
 
     # shape (70,3)->(x,y,scores)
-    f.face_landmark = np.array(face_landmark).reshape(-1, 3) * np.array([0.5, 0.5, 1])
-    #print("f.face_landmark shape ",f.face_landmark.shape)
+    f.face_landmark = np.array(face_landmark).reshape(-1, 3) 
     f.face_rays = rays_from_landmark(f.face_landmark, camera)
-    #print("f.face_rays  ",f.face_rays)
 
     return f

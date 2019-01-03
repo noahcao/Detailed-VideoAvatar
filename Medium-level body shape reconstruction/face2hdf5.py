@@ -15,14 +15,14 @@ from tqdm import tqdm
 This script stores OpenPose 2D keypoints from json files in the given directory in a compressed hdf5 file.
 
 Example:
-$ python fase2hdf5.py dataset/subject/openpose_detections facelandmark.hdf5
+$ python face2hdf5.py dataset/subject/openpose_detections face_landmark.hdf5
 
 """
 
 
 parser = argparse.ArgumentParser()
 parser.add_argument('src_folder', type=str)
-parser.add_argument('target', type=str)
+parser.add_argument('target', type=str, default="face_landmark.hdf5")
 
 args = parser.parse_args()
 
