@@ -6,13 +6,13 @@
 ## Usage ##
 ### 1. 替换文件 ###
 
-> - /lib 
-  ---> frame.py
-  ---> rays.py
-> - /models 
-  ---> bodyparts.py 
-> - --->run_step2.sh 
-> - --->step2_consensus.py
+> - /lib    
+  ---> frame.py    
+  ---> rays.py   
+> - /models    
+  ---> bodyparts.py    
+> - --->run_step2.sh    
+> - --->step2_consensus.py   
    
 ### 2. 生成face_landmark.hdf5 ###
 使用face2hdf5.py, 根据OpenPose识别出的face keypoint文件生成face_landmark.hdf5
