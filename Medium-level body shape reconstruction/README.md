@@ -125,7 +125,7 @@
 ```
 整个过程对应论文中：
 
-    ...establish a static mapping between landmarks and points on the mesh
+> ...establish a static mapping between landmarks and points on the mesh
 构造mapping关系的方式与第一篇论文中构造boundary vertices和silhouette rays的对应关系的方式相同，即通过计算面部所有vertex和所有face rays之间的距离，分别为每个vertex匹配最近的ray，为每个ray匹配最近的vertex，最后将两个匹配的结果进行合并，返回一一对应的vertex id以及ray矩阵    
 
 注意到在select_rays函数中还返回了一个矩阵w_idx,这一项对应论文中：
