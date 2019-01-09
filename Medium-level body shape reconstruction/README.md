@@ -129,11 +129,11 @@
 
 构造mapping关系的方式与第一篇论文中构造boundary vertices和silhouette rays的对应关系的方式相同，即通过计算面部所有vertex和所有face rays之间的距离，分别为每个vertex匹配最近的ray，为每个ray匹配最近的vertex，最后将两个匹配的结果进行合并，返回一一对应的vertex id以及ray矩阵    
 
-注意到在select_rays函数中还返回了一个矩阵w_idx,这一项对应论文中：
+注意到在select_rays函数中还返回了一个idx矩阵w_idx, w指的是论文中：
 
 > the conﬁdence of the landmark given by the  CNN
 
-即每个ray的标记可信度，这一项被用在了最终能量项的计算中   
+即每个ray的标记可信度，返回的w_idx矩阵这一项被用在了能量项的计算中   
 
 
 3.定义了ray_face函数，计算E_face能量项
@@ -144,19 +144,25 @@
     def ray_face(f, sigma, base_smpl, camera, face_ids):
         camera.t[:] = f.trans
 ```
-得到static mapping关系和landmark conﬁdence
+得到static mapping关系和landmark conﬁdence id
 ```
         f.v_ids, f.rays_u, w_idx = select_rays(f.face_rays, f.Vi, base_smpl, face_ids)
 ```
-计算加权点线距离，即$w_l(\delta(l_l, r_r)) $
+获取id对应的vertex，计算点线距离$(\delta(l_l, r_r)) $
 ```
         f.verts = base_smpl.v_shaped_personal[f.v_ids]
         f.dist = distance_function(f.rays_u, f.verts)
+```
+根据w_idx获得对应的confidence score，即$w_l$
+```
         w = f.face_landmark[:,-1][w_idx].reshape(-1,1) # confidence of landmark
 ```
 这里的GMOf函数即 Geman-McClure robust cost function，对应$\rho$ 
 ```
         x = GMOf(f.dist, sigma)
+```
+将$\rho$ 与 $w_l$相乘后返回，乘积即$E_{face}$
+```
         fina = x*w
          
         return fina
