@@ -259,8 +259,5 @@
 
 
   [1]: http://m.qpic.cn/psb?/V13Ti98m05LW5b/rogmPiyHNRYRKnyKsQUGnDBXCwwcUgPmj6S861eXnOA!/b/dFMBAAAAAAAA&bo=jAOGAgAAAAADNxk!&rf=viewer_4
-<<<<<<< HEAD
   [2]: http://m.qpic.cn/psb?/V13Ti98m05LW5b/SdP2uMWzwojfxb63xXjzM41mVnJXUbyaudxOlYN14Rw!/b/dL4AAAAAAAAA&bo=4QKIAgAAAAADN3s!&rf=viewer_4
-=======
-  [2]: http://m.qpic.cn/psb?/V13Ti98m05LW5b/SdP2uMWzwojfxb63xXjzM41mVnJXUbyaudxOlYN14Rw!/b/dL4AAAAAAAAA&bo=4QKIAgAAAAADN3s!&rf=viewer_4
->>>>>>> a04d6faec392184c21b4009fefd4d89537888d49
+  
