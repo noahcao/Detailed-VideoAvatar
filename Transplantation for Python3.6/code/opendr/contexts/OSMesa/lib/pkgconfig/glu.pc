@@ -1,0 +1,13 @@
+prefix=/is/ps/aweiss/OSMesa/OSMesaLinux64
+exec_prefix=${prefix}
+libdir=/is/ps/aweiss/OSMesa/OSMesaLinux64/lib
+includedir=/is/ps/aweiss/OSMesa/OSMesaLinux64/include
+
+Name: glu
+Description: Mesa OpenGL Utility library
+Requires: gl
+Requires.private: 
+Version: 8.0.4
+Libs: -L${libdir} -lGLU
+Libs.private: -lm 
+Cflags: -I${includedir} 
