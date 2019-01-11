@@ -2,15 +2,17 @@
 
 本文档为模型渲染工具的说明。该工具能够将模型和纹理渲染出来，并比较真实的展现出模型效果。
 
-项目地址（源代码）：[https://github.com/199ChenNuo/cv-visualization](https://github.com/199ChenNuo/cv-visualization)  
-
+项目地址（源代码）：[https://github.com/199ChenNuo/cv-visualization](https://github.com/199ChenNuo/cv-visualization)   
 可执行文件： [https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/tree/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/%E5%B7%A5%E5%85%B7/loader](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/tree/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/%E5%B7%A5%E5%85%B7/loader)
 
 ## 1.1 使用  
 批处理文件 *run.bat* 可执行文件 *loader.exe*
 1. **[推荐] 运行 *run.bat* 文件**  
     将含有模型和贴图的文件夹拖到 *run.bat* 上运行即可  
-    ![run-bat](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/run-bat.png)  
+    ![run-bat](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/run-bat.png)   
+
+<center>图1. 使用`run.bat`运行可视化工具</center>  
+
 2. 直接运行 *loader.exe* 可执行文件  
     双击即可，在弹窗内输入模型文件夹位置
 
@@ -22,10 +24,12 @@
 - 纹理路径：c:/models/femal-1-sport/tex-female-1-sport.jpg  
 用户输入 `c:/models/female-1-sport`即可。(见下图)  
 
+<span id="pic-1"></span>
 ![user-input](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5.png)  
+<center>图2. 用户输入</center>  
 
 ![dir](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/%E6%96%87%E4%BB%B6%E5%A4%B9%E7%BB%93%E6%9E%84.png)  
-
+<center>图3. 文件路径</center>  
 
 3. 命令行运行  
     命令行指定文件夹位置：  
@@ -36,15 +40,12 @@
     ```shell
     > loader.exe
     ```
+    同[图1](#pic-1)
     ```shell
     (cout) Model path:
     (cin)  c:/models/femal-1-sport
     ```
-
-
-
 注：文件命名规范应与论文给出的开源数据集相同，即纹理命名应为`tex-文件夹名.jpg`。模型名称应为`consensus.obj`
-
 
 ## 1.2 对渲染窗口的操作
 
@@ -72,6 +73,7 @@
 通过 'AWSD' + '上下左右' 8个键可以对模型位置做更精准的调整，便于观察。
 
 ![result](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png)
+<center>图4. 渲染效果</center>  
 
 旋转效果可以参照本repo中的demo问价夹下的 [*.gif*](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/tree/master/demo) 文件  
 
@@ -96,9 +98,10 @@ obj模型以及贴图
 为了得到法向量，曾经尝试通过Maya软件修改 *.obj* 文件（详见[3.1.2 Maya手动添加](#"3-1")）来为模型定义表面反射模型（Phong模型光照）  
 
 2. uv映射和贴图  
-代码生成的贴图和模型的uv映射的契合的，只要贴上贴图即可。由于代码 *.obj* 已经定义了uv映射，因此只要指定贴图文件即可。  
-下图是{模型表面的mesh | 模型表面的uv映射 | 纹理图片}的对比图片  
+代码生成的贴图和模型的uv映射的契合的，只要贴上贴图即可。由于代码 *.obj* 已经定义了uv映射，因此只要指定贴图文件即可。   
 ![uv](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/uv.png)
+<center>图5. {模型表面的mesh | 模型表面的uv映射 | 纹理图片}的对比</center>  
+
 
 3. 细化mesh  
 在使用[assimp库](http://assimp.sourceforge.net/lib_html/index.html) 导入模型时会将过大的mesh细化为小网格，并且所有mesh均用三角形表示。  
@@ -134,6 +137,7 @@ Shader.h    // 定义了着色器类
 1. 主要逻辑  
 加载模型完成后会进入展示模型的循环。直到用户按下Esc的时候再退出。  
 ![pipeline](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/pipeline.png)  
+<center>图6. 运行逻辑</center>  
 
 1. 库  
 ```
@@ -179,6 +183,7 @@ Shader.h    // 定义了着色器类
         在左下角窗口的“表面”下选择“Phong”
     ```   
     ![add-phone](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/add-phone.png)  
+    <center>图7. 使用Maya添加表面光照模型</center>  
 
     3. 在HyperShader中为模型添加来自文件的2D纹理，选择与导入的模型对应的纹理图片   
     ```
@@ -187,10 +192,12 @@ Shader.h    // 定义了着色器类
         在右侧窗口中选择纹理文件所在位置
     ```   
     ![choose-tex](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/choose-tex.png)   
+    <center>图8. 使用Maya指定纹理</center>  
+
     2.和3.操作最终会为模型表面增加两个节点。
-    ![maya-add-tex](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/maya-add-tex.png)    
-    
-    
+    ![maya-add-tex](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/maya-add-tex.png)   
+    <center>图9. Maya操作总览</center>  
+
     4. 导出全部文件: *consensus.obj, consensus.mtl, tex-xxx-x-xxx.jpg*   
     ```
     文件 -> 导出全部 -> 选择位置&设置文件名
@@ -243,12 +250,12 @@ vector<Texture> Model::loadMaterialTextures(...){
 启动程序会报错：应用程序无法正常启动0xc000007b 
 
 1. 导致这个问题的常见原因  
-    - 电脑没有安装DirectX9或者DirectX 9.0 组件损坏  
-    - 电脑没有安装Microsoft Visual C++
+    - 电脑没有安装 DirectX 9.0 或者 DirectX 9.0 组件损坏  
+    - 电脑没有安装 Microsoft Visual C++
     - 电脑上没有安装 .NET
 
-    经过5台环境不同的win10电脑试验后，确认是没有安装Microsoft Visual c++的原因。（安装了Visual Studio的电脑可以正常启动）   
-    但是考虑到可视化工具应该尽量轻量级，并且使用简单，因此要求用户安Microsoft Visual c++肯定是不合理的。
+    经过5台环境不同的win10电脑试验后，确认是没有安装 Microsoft Visual c++ 的原因。（安装了 Visual Studio 的电脑可以正常启动）   
+    但是考虑到可视化工具应该尽量轻量级，并且使用简单，因此要求用户安装 Microsoft Visual c++ 肯定是不合理的。
 
 2. 本项目中的具体原因   
     OpenGL需要使用32位的库，而之前打包的库为64位的库。  
