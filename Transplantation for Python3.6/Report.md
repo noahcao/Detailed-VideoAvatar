@@ -126,7 +126,7 @@
     6 directories, 34 files
     ```
 1. 修改 setup.py，使之满足python3语法（附件中有修改好的版本）
-1. 命令行执行安装指令
+1. 命令行执行安装指令（**使用python3**）
     ```shell
     $ python3 setup.py build_ext --inplace
     ```
@@ -144,6 +144,13 @@
     ```python
     from .contexts._constants import *
     ```
+## 三、移植效果展示
+### step2
+![](assets/step2.png)
+### step3
+**关于运行step3，一定要注意目录名称和mp4的名称相同，否则会生成黑色的空白纹理**
+
+![](assets/step3.png)
 
 
 
