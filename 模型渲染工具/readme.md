@@ -95,10 +95,11 @@ obj模型以及贴图
 1. 法向量  
 为了加入反射来展现出模型的真实感，需要计算模型表面mesh的法向量进而获得光照情况。  
 论文代码生成的 *.obj* 文件中并没有加入法向量。  
-为了得到法向量，曾经尝试通过Maya软件修改 *.obj* 文件（详见[3.1.2 Maya手动添加](#"3-1")）来为模型定义表面反射模型（Phong模型光照）  
+为了得到法向量，曾经尝试通过Maya软件修改 *.obj* 文件（详见[3.1.2 Maya手动添加](#"3-1")）来为模型定义表面反射模型（Phong模型光照）    
+因为使用Maya计算法向量效率太低，所以后期进行了其他探索，最终选择在OpenGL中导入模型时计算法向量。
 
 2. uv映射和贴图  
-代码生成的贴图和模型的uv映射的契合的，只要贴上贴图即可。由于代码 *.obj* 已经定义了uv映射，因此只要指定贴图文件即可。   
+代码生成的贴图是和模型的uv映射的契合的，只要贴上贴图即可。由于代码 *.obj* 已经定义了uv映射，因此只要指定贴图文件即可。   
 ![uv](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/uv.png)
 <center>图5. {模型表面的mesh | 模型表面的uv映射 | 纹理图片}的对比</center>  
 
@@ -126,7 +127,7 @@ const aiScene* scene = importer.ReadFile(modelFile, aiProcess_SplitLargeMeshes);
 使用OpenGL、glfw库、glad库等来开发本项目。  
 主要目的是可视化出论文代码生成的模型，并且尽量简化用户需要的操作。  
 
-1. 主要文件  
+2. 主要文件  
 
 ```c++
 main.cpp    // 定义顶层函数 & 与用户的交互
@@ -139,7 +140,7 @@ Shader.h    // 定义了着色器类
 ![pipeline](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/pipeline.png)  
 <center>图6. 运行逻辑</center>  
 
-1. 库  
+3. 库  
 ```
     glfw      3.2  
     glad      0.1.28  
@@ -158,7 +159,7 @@ Shader.h    // 定义了着色器类
 
 1. 步骤：
     1. 读取 *.obj* 文件
-    1. 在文件中指定 *.mtl* 文件
+    1. 在 *.obj* 文件中指定 *.mtl* 文件
     1. 生成与 *.obj* 文件对应的 *.mtl* 文件
     1. 在 *.mtl* 文件中指定模型表面性质与 *.jpg* 纹理文件
 
@@ -166,13 +167,13 @@ Shader.h    // 定义了着色器类
     1. 面的法向量难以计算
     1. 会改变原有模型
 
-### <span id="3-1">3.1.2 Maya手动添加模型与纹理映射关系</span>
-通过渲染编辑器中的HyperShader来为模型指定表面反射模型和表面纹理，导出文件时生成法向量。    
+### <span id="3-1">3.1.2 Maya手动添加模型与纹理的映射关系</span>
+通过渲染编辑器中的HyperShader来为模型指定表面光照模型和表面纹理，导出文件时生成模型表面法向量。    
 
 1. 操作步骤：  
     1. 导入模型  
     ```
-    文件 -> 导入 -> 选择模型位置  
+    文件 -> 导入 -> 选择模型文件  
     ```    
 
     2. 进入HyperShader中为模型添加反射模型（实例中选择了Phong光照模型）    
@@ -194,7 +195,7 @@ Shader.h    // 定义了着色器类
     ![choose-tex](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/choose-tex.png)   
     <center>图8. 使用Maya指定纹理</center>  
 
-    2.和3.操作最终会为模型表面增加两个节点。
+    操作2.和3.最终会为模型表面增加两个“节点”。
     ![maya-add-tex](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/maya-add-tex.png)   
     <center>图9. Maya操作总览</center>  
 
@@ -204,20 +205,18 @@ Shader.h    // 定义了着色器类
     ```   
 
 1. 缺点：
-    1. 操作周期长，不具有普遍性
+    1. 操作周期长，效率低
     2. 会改变原有模型
     3. 需要安装Maya
     3. 在Maya中直接查看可视化效果不好
 
 ### 3.1.3 最终方案
-不改动论文代码生成的文件，导入模型时计算法向量并直接为 *.obj* 模型指定纹理图片。  
+不改动论文代码生成的文件，导入模型时计算法向量并直接为 *.obj* 模型文件指定纹理图片。 
 
-1. 纹理没有被渲染出来，只能看到黑色的轮廓  
-    - 原因： 模型中没有指明纹理位置  
-        模型导入库 Assimp 导入模型后，如果 *.obj* 文件中没有指定 *.mtl* 文件，那么就会认为模型没有贴图。  
-    - 解决： 通过修改着色器代码`Shader.cpp`，在渲染时指定纹理位置。  
-        使用 Assimp 的 Importer 导入模型后，修改判断模型是否有纹理的逻辑代码。  
-        即使模型没有指定纹理，也在文件夹中搜索和文件夹名匹配的 *.jpg* 文件，如果找到文件名匹配的文件，那么将该文件作为模型的纹理。
+1. 步骤： 
+修改了 `Model.{h, cpp}` 文件，使用 Assimp 的 Importer 导入模型后，修改判断模型是否有纹理的逻辑代码。  
+即使模型没有指定纹理，也在文件夹中搜索和文件夹名匹配的 *.jpg* 文件，如果找到文件名匹配的文件，那么将该文件作为模型的纹理。  
+
 > Model.h
 ```cpp
 // 模型类 
@@ -246,23 +245,30 @@ vector<Texture> Model::loadMaterialTextures(...){
 }
 ```
 
+2. 优缺点：
+    1. 未修改原模型文件，不用生成新文件
+    1. 可移植性好，不用安装多余的软件
+
 ## 3.2 *loader.exe* 文件在一些电脑上无法正常启动  
-启动程序会报错：应用程序无法正常启动0xc000007b 
+启动程序会报错：`应用程序无法正常启动0xc000007b`
 
 1. 导致这个问题的常见原因  
     - 电脑没有安装 DirectX 9.0 或者 DirectX 9.0 组件损坏  
     - 电脑没有安装 Microsoft Visual C++
     - 电脑上没有安装 .NET
 
-    经过5台环境不同的win10电脑试验后，确认是没有安装 Microsoft Visual c++ 的原因。（安装了 Visual Studio 的电脑可以正常启动）   
+    经过5台环境不同的win10电脑试验后，确认是没有安装 Microsoft Visual C++ 的原因。（安装了 Visual Studio 的电脑可以正常启动）   
     但是考虑到可视化工具应该尽量轻量级，并且使用简单，因此要求用户安装 Microsoft Visual c++ 肯定是不合理的。
 
 2. 本项目中的具体原因   
     OpenGL需要使用32位的库，而之前打包的库为64位的库。  
 
     由于已经打包了项目所需的所有dll文件，所以运行 *loader.exe* 时并没有提示缺失库文件或者库文件错误。  
-    参考[在Windows平台用visual studio编译的可执行文件部署时报：应用程序无法正常启动0xc000007b（跟DirectX9无关的原因](https://blog.csdn.net/xiejiashu/article/details/61209920),猜测同样是 *.dll* 文件不对。  
-    将打包的依赖库从VS库文件夹中的 *.dll* 中替换为 *C:\Windows\SysWOW64* 文件夹下的同名 *.dll* 后，程序在前面测试的5台电脑上都可以正常启动，于是确定是库文件位数的原因。  
+    参考[在Windows平台用visual studio编译的可执行文件部署时报：应用程序无法正常启动0xc000007b（跟DirectX9无关的原因）](https://blog.csdn.net/xiejiashu/article/details/61209920),猜测同样是 *.dll* 文件版本不对。  
+    将打包的依赖库从VS库文件夹中的 *.dll* 中替换为 *C:\Windows\SysWOW64* 32位库文件夹下的同名 *.dll* 后，程序在前面测试的5台电脑上都可以正常启动，于是确定是库文件位数的原因。  
+
+3. 解决方法  
+    将打包的 *.dll* 文件替换为32位的 *.dll* 文件  
 
 # 4. 参考
 
