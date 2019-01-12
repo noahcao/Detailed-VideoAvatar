@@ -75,7 +75,7 @@
 ![result](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/blob/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7/assets/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png)
 <center>图4. 渲染效果</center>  
 
-旋转效果可以参照本repo中的demo问价夹下的 [*.gif*](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/tree/master/demo) 文件  
+旋转效果可以参照本repo中的demo文件夹下的 [*.gif*](https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/tree/master/demo) 文件  
 
 ## 1.4 使用注意事项
 使用平台为Win10。  
