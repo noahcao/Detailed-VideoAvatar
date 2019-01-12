@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: /Users/noahcao/Downloads/3D_Reconstruction_Report (1)/.texpadtmp/main.aux
+The style file: abbrv.bst
+Database file #1: ../ref.bib
+Warning--empty journal in shapefromshading
+You've used 16 entries,
+            2118 wiz_defined-function locations,
+            568 strings with 6380 characters,
+and the built_in function-call counts, 5449 in all, are:
+= -- 484
+> -- 364
+< -- 4
++ -- 144
+- -- 128
+* -- 357
+:= -- 934
+add.period$ -- 50
+call.type$ -- 16
+change.case$ -- 112
+chr.to.int$ -- 0
+cite$ -- 17
+duplicate$ -- 179
+empty$ -- 395
+format.name$ -- 128
+if$ -- 1124
+int.to.chr$ -- 0
+int.to.str$ -- 16
+missing$ -- 9
+newline$ -- 83
+num.names$ -- 32
+pop$ -- 155
+preamble$ -- 1
+purify$ -- 96
+quote$ -- 0
+skip$ -- 142
+stack$ -- 0
+substring$ -- 150
+swap$ -- 40
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 64
+warning$ -- 1
+while$ -- 40
+width$ -- 18
+write$ -- 162
+(There was 1 warning)

@@ -1,0 +1,170 @@
+\relax 
+\citation{smpl}
+\citation{paper1,paper2}
+\citation{smpl}
+\citation{paper1code}
+\citation{paper1,paper2}
+\citation{paper1homepage}
+\citation{paper2}
+\citation{paper1code}
+\citation{smpl,smplhomepage}
+\citation{paper1,paper2}
+\@writefile{toc}{\contentsline {section}{\numberline {1}论文阅读梳理}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}SMPL: A Skinned Multi-Person Linear Model}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces SMPL is a realistic learned model of human body shape and pose that is compatible with existing rendering engines, allows animator control, and is available for research purposes. (left) SMPL model (orange) fit to ground truth 3D meshes (gray). (right) Unity 5.0 game engine screenshot showing bodies from the CAESAR dataset animated in real time.}}{5}}
+\newlabel{smpl}{{1}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.1}Motivation}{5}}
+\citation{paper2}
+\citation{paper2}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.2}相关公式和标记}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.3}参数介绍}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Video Based Reconstruction of 3D People Models}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Technique in \cite  {paper2} allows to extract for the first time accurate 3D human body models, including hair and clothing, from a single video sequence of the person moving in front of the camera such that the person is seen from all sides.}}{6}}
+\newlabel{paper1_titlefigure}{{2}{6}}
+\citation{2Dkeypoint}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.1}Motivation}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.2}Proposed Methods}{7}}
+\citation{keepitsmpl}
+\citation{oneshotseg}
+\citation{smpl}
+\citation{paper2}
+\citation{paper2}
+\citation{paper2}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Detailed human avatars from monocular video}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Method in \cite  {paper2} creates a detailed avatar from a monocular video of a person turning around. Based on the SMPL model, we first compute a medium-level avatar, then add subject-specific details and finally generate a seamless texture.}}{8}}
+\newlabel{paper2_titlefigure}{{3}{8}}
+\citation{paper1}
+\citation{openpose}
+\citation{paper1}
+\citation{shapefromshading}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.1}Subdivided SMPL model}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.2}Medium-level体态重建}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.3}表面细节建模}{9}}
+\citation{paper1}
+\citation{paper1}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.4}优化的纹理生成}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.5}复现难点总结}{10}}
+\citation{paper1code}
+\citation{paper1}
+\citation{paper1code}
+\citation{smplhomepage}
+\citation{smplifyhomepage}
+\citation{paper1homepage}
+\citation{paper1code}
+\@writefile{toc}{\contentsline {section}{\numberline {2}部署使用Video-Avatar代码}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}项目部署}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.1}获取SMPL工程}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.2}获取数据集}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.3}部署项目依赖}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}工程运行}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}生成模型的渲染和可视化}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}对obj模型文件的优化}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}添加法向量}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}uv映射和贴图}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 渲染时需要使用的贴图文件示例}}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3}细化mesh}{13}}
+\citation{paper1homepage}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 取样于people-snapshot数据集的videoavatar多角度效果示意图。}}{14}}
+\newlabel{videoavatarsample}{{5}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}自制渲染工具}{14}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}优化3D重建项目}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}基于Video-avatar已有代码的参数优化}{14}}
+\newlabel{adjust_term}{{9}{14}}
+\citation{paper2}
+\citation{faceoptimization}
+\citation{openpose}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 在对videoavatar代码进行参数调整的前后对同一帧视频中的人体得到的不同建模结果，左图为参数调整之后的建模结果，右图为使用默认参数时的输出结果}}{15}}
+\newlabel{adjust_compare}{{6}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Detailed human avatars实现}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Facial Landmarks}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Openpose Face Keypoint Detector输出的人体面部关键点位置分布。}}{16}}
+\newlabel{openposeface}{{7}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Subdivided SMPL body model}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces 加入facial landmarks信息后优化结果对比图，每张图片的左侧模型为优化之后的，右侧为原始模型效果图。}}{17}}
+\newlabel{face_compare}{{8}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces 在进行表面点阵细化(Subdivision)工作前后的效果示意图，为了更加直观的表现工作的效果，我们仅对人体身体的半侧进行了点阵的细化。}}{19}}
+\newlabel{subdivision}{{9}{19}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}自拍视频进行建模实验}{19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}准备工作}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}相机标定数据获取}{19}}
+\citation{deepmask}
+\citation{labelme}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Mask标注或生成}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces labelme工具使用示意图}}{20}}
+\citation{openpose}
+\citation{paper1,paper2}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces mask处理过程不同阶段示意图}}{22}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}人体关键点数据生成}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}实践过程}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces 自拍视频抽取的关键帧的mask处理结果示意图}}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces 综合了躯体关键点和mask信息的自拍视频抽样图}}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces 从自拍视频中抽取的部分关键帧截图}}{24}}
+\newlabel{huvideo}{{14}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces 模型生成的自拍视频中的人物建模结果}}{24}}
+\newlabel{hures}{{15}{24}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}chumpy和opendr的代码移植}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces 对自拍目标进行面部细节优化的结果，左图为优化之前的效果，右图为优化之后的效果}}{25}}
+\newlabel{huface}{{16}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}对python不兼容函数的复写}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}import语法的修改}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}pickle库用法修改}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}运算法"/"的修改}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces 零除错在python2版本中的体现：产生RuntimeWarning}}{26}}
+\newlabel{python2_div0}{{17}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces 零除错在python2版本中的体现：产生RuntimeWarning，对应项目变成inf字节}}{27}}
+\newlabel{python3_div0}{{18}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}移植opendr的ctx\_mesa.so链接库}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}编译后与ctx\_mesa.so的OsContext类对接}{27}}
+\citation{smpl}
+\citation{paper1code}
+\citation{smpl,paper1,paper2}
+\citation{paper1code}
+\citation{paper1}
+\citation{paper2}
+\citation{paper2}
+\citation{shapefromshading}
+\@writefile{toc}{\contentsline {section}{\numberline {6}总结}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}已完成的工作}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}失败的经验}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}对Shape-from-shading的复现失败}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}对自拍视频进行建模过程中的失败}{28}}
+\citation{paper2}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces 最初的自拍人物建模失败样例}}{29}}
+\newlabel{failure_1}{{19}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces 尝试各种参数调整之后仍旧失败，得到了形态各异单就是不像视频人物的建模结果}}{29}}
+\newlabel{failure_2}{{20}{29}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}进一步工作}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces 在对原始的mask图片进行“排序”之后得到的前三个关键帧剪影效果}}{30}}
+\newlabel{mask_mismatch}{{21}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces 在进行重新排序后得到的关键帧序列}}{30}}
+\newlabel{frame_order}{{22}{30}}
+\bibstyle{abbrv}
+\bibdata{ref}
+\bibcite{paper1code}{1}
+\bibcite{paper2}{2}
+\bibcite{paper1}{3}
+\bibcite{keepitsmpl}{4}
+\bibcite{oneshotseg}{5}
+\bibcite{openpose}{6}
+\bibcite{2Dkeypoint}{7}
+\bibcite{paper1homepage}{8}
+\bibcite{smplifyhomepage}{9}
+\bibcite{smpl}{10}
+\bibcite{faceoptimization}{11}
+\bibcite{labelme}{12}
+\bibcite{renderingtool}{13}
+\bibcite{deepmask}{14}
+\bibcite{smplhomepage}{15}
+\bibcite{shapefromshading}{16}
+\@writefile{toc}{\contentsline {section}{Appendices}{33}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}编译ctx\_mesa.so需要的素材文件}{33}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Subdivision中建立smpl模型图矩阵}{34}}
+\citation{renderingtool}
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces 使用批处理文件可以一步运行该工具}}{36}}
+\newlabel{renderrun}{{23}{36}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}自制obj文件可视化工具}{36}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.1}方法1:通过.bat文件运行}{36}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2}方法2:通过loader.exe文件运行}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces 利用渲染工具生成的渲染效果图}}{37}}
+\newlabel{rendering1}{{24}{37}}
+\@writefile{toc}{\contentsline {section}{\numberline {D}面部细节优化的工程复现}{37}}

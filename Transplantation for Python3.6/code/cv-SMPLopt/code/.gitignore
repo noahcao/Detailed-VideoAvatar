@@ -1,6 +1,0 @@
-.idea/
-.DS_Store
-
-*.pyc
-vendor/*
-!vendor/__init__.py

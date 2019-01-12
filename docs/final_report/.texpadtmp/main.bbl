@@ -1,0 +1,93 @@
+\begin{thebibliography}{10}
+
+\bibitem{paper1code}
+T.~Alldieck, M.~Magnor, W.~Xu, C.~Theobalt, and G.~Pons-Moll.
+\newblock videoavatars.
+\newblock \url{https://github.com/thmoa/videoavatars}.
+
+\bibitem{paper2}
+T.~Alldieck, M.~Magnor, W.~Xu, C.~Theobalt, and G.~Pons-Moll.
+\newblock Detailed human avatars from monocular video.
+\newblock In {\em 2018 International Conference on 3D Vision (3DV)}, pages
+  98--109. IEEE, 2018.
+
+\bibitem{paper1}
+T.~Alldieck, M.~A. Magnor, W.~Xu, C.~Theobalt, and G.~Pons-Moll.
+\newblock Video based reconstruction of 3d people models.
+\newblock {\em arXiv preprint arXiv:1803.04758}, 2018.
+
+\bibitem{keepitsmpl}
+F.~Bogo, A.~Kanazawa, C.~Lassner, P.~Gehler, J.~Romero, and M.~J. Black.
+\newblock Keep it smpl: Automatic estimation of 3d human pose and shape from a
+  single image.
+\newblock In {\em European Conference on Computer Vision}, pages 561--578.
+  Springer, 2016.
+
+\bibitem{oneshotseg}
+S.~Caelles, K.~Maninis, J.~Pont-Tuset, L.~Leal-Taix\'e, D.~Cremers, and L.~{Van
+  Gool}.
+\newblock One-shot video object segmentation.
+\newblock In {\em Computer Vision and Pattern Recognition (CVPR)}, 2017.
+
+\bibitem{openpose}
+Z.~Cao, G.~Hidalgo, T.~Simon, S.-E. Wei, and Y.~Sheikh.
+\newblock Open{P}ose: realtime multi-person 2{D} pose estimation using {P}art
+  {A}ffinity {F}ields.
+\newblock In {\em arXiv preprint arXiv:1812.08008}, 2018.
+
+\bibitem{2Dkeypoint}
+C.~Lassner, J.~Romero, M.~Kiefel, F.~Bogo, M.~J. Black, and P.~V. Gehler.
+\newblock Unite the people: Closing the loop between 3d and 2d human
+  representations.
+\newblock In {\em IEEE Conf. on Computer Vision and Pattern Recognition
+  (CVPR)}, volume~2, page~3, 2017.
+
+\bibitem{paper1homepage}
+M.~Loper, N.~Mahmood, J.~Romero, G.~Pons-Moll, and M.~J. Black.
+\newblock smplhomepage.
+\newblock \url{https://graphics.tu-bs.de/people-snapshot}.
+
+\bibitem{smplifyhomepage}
+M.~Loper, N.~Mahmood, J.~Romero, G.~Pons-Moll, and M.~J. Black.
+\newblock smplhomepage.
+\newblock \url{http://smplify.is.tue.mpg.de/}.
+
+\bibitem{smpl}
+M.~Loper, N.~Mahmood, J.~Romero, G.~Pons-Moll, and M.~J. Black.
+\newblock Smpl: A skinned multi-person linear model.
+\newblock {\em ACM Transactions on Graphics (TOG)}, 34(6):248, 2015.
+
+\bibitem{faceoptimization}
+Y.~Luo.
+\newblock faceoptimization.
+\newblock
+  \url{https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/tree/master/Medium-level%20body%20shape%20reconstruction}.
+
+\bibitem{labelme}
+MIT.
+\newblock labelme.
+\newblock \url{https://github.com/wkentaro/labelme}.
+
+\bibitem{renderingtool}
+Y.~H. Nuo~Chen.
+\newblock renderingtools.
+\newblock
+  \url{https://github.com/noahcao/Detailed-Human-Avatars-from-Monocular-Video/tree/master/%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93%E5%B7%A5%E5%85%B7}.
+
+\bibitem{deepmask}
+P.~H.~O. Pinheiro, R.~Collobert, and P.~Doll{\'{a}}r.
+\newblock Learning to segment object candidates.
+\newblock {\em CoRR}, abs/1506.06204, 2015.
+
+\bibitem{smplhomepage}
+G.~Pons-moll.
+\newblock smplhomepage.
+\newblock \url{http://smpl.is.tue.mpg.de/}.
+
+\bibitem{shapefromshading}
+C.~Wu, B.~Wilburn, Y.~Matsushita, and C.~Theobalt.
+\newblock High-quality shape from multi-view stereo and shading under general
+  illumination.
+\newblock 2011.
+
+\end{thebibliography}

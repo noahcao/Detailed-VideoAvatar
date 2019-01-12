@@ -1,0 +1,13 @@
+prefix=/is/ps/aweiss/OSMesa/OSMesaLinux64
+exec_prefix=${prefix}
+libdir=/is/ps/aweiss/OSMesa/OSMesaLinux64/lib
+includedir=/is/ps/aweiss/OSMesa/OSMesaLinux64/include
+
+Name: gl
+Description: Mesa OpenGL library
+Requires.private: x11 xext
+Version: 8.0.4
+Libs: -L${libdir} -lGL
+Libs.private: -lm -lpthread
+Cflags: -I${includedir} 
+glx_tls: no

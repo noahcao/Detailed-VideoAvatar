@@ -1,0 +1,57 @@
+\contentsline {section}{\numberline {1}论文阅读梳理}{5}
+\contentsline {subsection}{\numberline {1.1}SMPL: A Skinned Multi-Person Linear Model}{5}
+\contentsline {subsubsection}{\numberline {1.1.1}Motivation}{5}
+\contentsline {subsubsection}{\numberline {1.1.2}相关公式和标记}{6}
+\contentsline {subsubsection}{\numberline {1.1.3}参数介绍}{6}
+\contentsline {subsection}{\numberline {1.2}Video Based Reconstruction of 3D People Models}{6}
+\contentsline {subsubsection}{\numberline {1.2.1}Motivation}{7}
+\contentsline {subsubsection}{\numberline {1.2.2}Proposed Methods}{7}
+\contentsline {subsection}{\numberline {1.3}Detailed human avatars from monocular video}{8}
+\contentsline {subsubsection}{\numberline {1.3.1}Subdivided SMPL model}{9}
+\contentsline {subsubsection}{\numberline {1.3.2}Medium-level体态重建}{9}
+\contentsline {subsubsection}{\numberline {1.3.3}表面细节建模}{9}
+\contentsline {subsubsection}{\numberline {1.3.4}优化的纹理生成}{10}
+\contentsline {subsubsection}{\numberline {1.3.5}复现难点总结}{10}
+\contentsline {section}{\numberline {2}部署使用Video-Avatar代码}{11}
+\contentsline {subsection}{\numberline {2.1}项目部署}{11}
+\contentsline {subsubsection}{\numberline {2.1.1}获取SMPL工程}{11}
+\contentsline {subsubsection}{\numberline {2.1.2}获取数据集}{11}
+\contentsline {subsubsection}{\numberline {2.1.3}部署项目依赖}{11}
+\contentsline {subsection}{\numberline {2.2}工程运行}{12}
+\contentsline {subsection}{\numberline {2.3}生成模型的渲染和可视化}{13}
+\contentsline {subsection}{\numberline {2.4}对obj模型文件的优化}{13}
+\contentsline {subsubsection}{\numberline {2.4.1}添加法向量}{13}
+\contentsline {subsubsection}{\numberline {2.4.2}uv映射和贴图}{13}
+\contentsline {subsubsection}{\numberline {2.4.3}细化mesh}{13}
+\contentsline {subsection}{\numberline {2.5}自制渲染工具}{14}
+\contentsline {section}{\numberline {3}优化3D重建项目}{14}
+\contentsline {subsection}{\numberline {3.1}基于Video-avatar已有代码的参数优化}{14}
+\contentsline {subsection}{\numberline {3.2}Detailed human avatars实现}{15}
+\contentsline {subsubsection}{\numberline {3.2.1}Facial Landmarks}{15}
+\contentsline {subsubsection}{\numberline {3.2.2}Subdivided SMPL body model}{16}
+\contentsline {section}{\numberline {4}自拍视频进行建模实验}{19}
+\contentsline {subsection}{\numberline {4.1}准备工作}{19}
+\contentsline {subsubsection}{\numberline {4.1.1}相机标定数据获取}{19}
+\contentsline {subsubsection}{\numberline {4.1.2}Mask标注或生成}{20}
+\contentsline {subsubsection}{\numberline {4.1.3}人体关键点数据生成}{22}
+\contentsline {subsection}{\numberline {4.2}实践过程}{22}
+\contentsline {section}{\numberline {5}chumpy和opendr的代码移植}{24}
+\contentsline {subsection}{\numberline {5.1}对python不兼容函数的复写}{25}
+\contentsline {subsection}{\numberline {5.2}import语法的修改}{25}
+\contentsline {subsection}{\numberline {5.3}pickle库用法修改}{25}
+\contentsline {subsection}{\numberline {5.4}运算法"/"的修改}{26}
+\contentsline {subsection}{\numberline {5.5}移植opendr的ctx\_mesa.so链接库}{27}
+\contentsline {subsection}{\numberline {5.6}编译后与ctx\_mesa.so的OsContext类对接}{27}
+\contentsline {section}{\numberline {6}总结}{28}
+\contentsline {subsection}{\numberline {6.1}已完成的工作}{28}
+\contentsline {subsection}{\numberline {6.2}失败的经验}{28}
+\contentsline {subsubsection}{\numberline {6.2.1}对Shape-from-shading的复现失败}{28}
+\contentsline {subsubsection}{\numberline {6.2.2}对自拍视频进行建模过程中的失败}{28}
+\contentsline {subsection}{\numberline {6.3}进一步工作}{29}
+\contentsline {section}{Appendices}{33}
+\contentsline {section}{\numberline {A}编译ctx\_mesa.so需要的素材文件}{33}
+\contentsline {section}{\numberline {B}Subdivision中建立smpl模型图矩阵}{34}
+\contentsline {section}{\numberline {C}自制obj文件可视化工具}{36}
+\contentsline {subsection}{\numberline {C.1}方法1:通过.bat文件运行}{36}
+\contentsline {subsection}{\numberline {C.2}方法2:通过loader.exe文件运行}{36}
+\contentsline {section}{\numberline {D}面部细节优化的工程复现}{37}
