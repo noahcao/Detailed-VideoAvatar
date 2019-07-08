@@ -1,6 +1,6 @@
-# SE342-3D重建大作业
+# Detailed Video Avatar
 
-作为SE342的小组课程作业，基于已有的3D人体建模框架，我们进行了创新和重构，相关工作包括：
+基于已有的3D人体建模框架，本项目完成的相关工作包括：
 
 1. 部署运行[videoavatar](https://github.com/thmoa/videoavatars)工程，该项目是论文[“Video Based Reconstruction of 3D People Models”](http://arxiv.org/abs/1803.04758)的官方release版本，对视频素材中的人物进行3D重建；
 2. 自行拍摄视频进行3D人体模型重建工作，并在基础输出的基础上进行细节的优化等工作；
