@@ -9,7 +9,7 @@ We did several works in this project, including:
 
 We note that: although this README is written in English, many other texts in this project is written in Chinese, please feel free to contact us if you find anything hard to understand. Besides, some other features in "Detailed Avatar" are still to be implemented, we only realized the main two.
 
-# 文件组织
+# File Organization
 
 ```shell
 |-- Render: rendering tools 
